@@ -1,22 +1,27 @@
 ### MATH MODULE
 # Math class:
-class Math:
+BUZZ = "Buzz"
+FIZZ = "Fizz"
 
-    def module3(number):
-        return number % 3 == 0
 
-    def module5(number):
-        return number % 5 == 0
+class FizzBuzzChecker:
+    def isDivisible(number, modulenumber):
+        if number == 0:
+            return False
+        else:
+            return number % modulenumber == 0
+    def isFizz(number):
+        return FizzBuzzChecker.isDivisible(number,3) or "3" in str(number)
 
-    def module(number, modulenumber):
-        return number % modulenumber == 0
+    def isBuzz(number):
+        return FizzBuzzChecker.isDivisible(number,5) or "5" in str(number)
 
     def checkFizzBuzz(number):
         stringfinal = ""
-        if Math.module3(number):
-            stringfinal = stringfinal + "Fizz"
-        if Math.module5(number):
-            stringfinal = stringfinal + "Buzz"
-        if not (Math.module3(number) or Math.module5(number)):
+        if FizzBuzzChecker.isFizz(number):
+            stringfinal = stringfinal + FIZZ
+        if FizzBuzzChecker.isBuzz(number):
+            stringfinal = stringfinal + BUZZ
+        if not (FizzBuzzChecker.isFizz(number) or FizzBuzzChecker.isBuzz(number)):
             return str(number)
         return stringfinal
